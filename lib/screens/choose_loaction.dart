@@ -29,6 +29,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
             counter += 1
           });
         },
+        child: Text('counter is $counter'),
       ),
     );
   }
