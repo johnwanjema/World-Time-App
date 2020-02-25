@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class ChooseLocation extends StatefulWidget {
   @override
@@ -8,11 +9,6 @@ class ChooseLocation extends StatefulWidget {
 class _ChooseLocationState extends State<ChooseLocation> {
 
   int counter = 0;
-
-  @override
-  void initState() {
-     super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
