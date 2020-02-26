@@ -15,17 +15,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         backgroundColor: Colors.blue[900],
-        title: Text('Choose a Loaction'),
+        title: Text('Choose a Location'),
         centerTitle: true,
         elevation: 0,
-      ),
-      body: RaisedButton(
-        onPressed: (){
-          setState(() {
-            counter += 1
-          });
-        },
-        child: Text('counter is $counter'),
       ),
     );
   }
