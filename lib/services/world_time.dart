@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:intl/intl.dart';
 
 class worldTime {
   String location;
@@ -26,7 +27,7 @@ class worldTime {
       print(now);
 
       //set time property
-      time = now.toString();
+      time = DateFormat.jm().format(now);
     }catch(e ){
       print('error $e.toString()');
       time = "no data";
