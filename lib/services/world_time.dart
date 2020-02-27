@@ -8,7 +8,7 @@ class worldTime {
   String time;
   String flag;
   String url;
-
+  bool isDay;
   worldTime({this.location, this.flag, this.url});
 
   Future<void> getTime() async {
@@ -28,6 +28,8 @@ class worldTime {
 
       //set time property
       time = DateFormat.jm().format(now);
+//      isDay = is ? true : false;
+         isDay  =  now.hour > 6 && now.hour <20   ? true : false;
     }catch(e ){
       print('error $e.toString()');
       time = "no data";
