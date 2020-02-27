@@ -8,7 +8,6 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-
   int counter = 0;
   List<worldTime> locations = [
     worldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
@@ -21,6 +20,18 @@ class _ChooseLocationState extends State<ChooseLocation> {
     worldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
   ];
 
+  void updateTime(index) async {
+    worldTime instance = locations[index];
+    await instance.getTime();
+//    navigate to home
+
+    Navigator.pop(context, {
+      'location': instance.location,
+      'flag': instance.flag,
+      'time': instance.time,
+      'isDay': instance.isDay,
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,20 +45,19 @@ class _ChooseLocationState extends State<ChooseLocation> {
       ),
       body: ListView.builder(
         itemCount: locations.length,
-        itemBuilder: (context,index){
+        itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
             child: Card(
-              child:ListTile(
-                  onTap:(){
-                    print(locations)
-                  },
-                  title:Text(locations[index].location),
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage('assests/${locations[index].flag}'),
-                ),
-              )
-            ),
+                child: ListTile(
+              onTap: () {
+                updateTime(index);
+              },
+              title: Text(locations[index].location),
+              leading: CircleAvatar(
+                backgroundImage: AssetImage('assests/${locations[index].flag}'),
+              ),
+            )),
           );
         },
       ),

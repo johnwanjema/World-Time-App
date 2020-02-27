@@ -17,7 +17,6 @@ class worldTime {
       Response response = await get('http://worldtimeapi.org/api/timezone/$url');
 
       Map data = jsonDecode(response.body);
-      print(data);
       String datetime = data['datetime'];
       String offset = data['utc_offset'].substring(1, 3);
 
