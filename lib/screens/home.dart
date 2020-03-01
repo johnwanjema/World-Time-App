@@ -9,6 +9,7 @@ class _HomeState extends State<Home> {
   Map data = {};
   @override
   Widget build(BuildContext context) {
+    print('data ni hiii  $data');
     data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
     String bgImage = data['isDay'] ? 'day.jpg' : 'night.jpeg';
     Color bgColor = data['isDay'] ? Colors.blue : Colors.indigo[700];
@@ -18,17 +19,28 @@ class _HomeState extends State<Home> {
         child: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assests/$bgImage'),
-                fit: BoxFit.cover,
-              )
-          ),
+            image: AssetImage('assests/$bgImage'),
+            fit: BoxFit.cover,
+          )),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
             child: Column(
               children: <Widget>[
                 FlatButton.icon(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/location');
+                  onPressed: () async {
+                    dynamic result =
+                        await Navigator.pushNamed(context, '/location');
+                    print(result);
+                    if (result != null) {
+                      setState(() {
+                        data = {
+                          'time': result['time'],
+                          'location': result['location'],
+                          'isDay': result['isDay'],
+                          'flag': result['flag']
+                        };
+                      });
+                    }
                   },
                   icon: Icon(
                     Icons.edit_location,
@@ -56,13 +68,8 @@ class _HomeState extends State<Home> {
                   ],
                 ),
                 SizedBox(height: 20.0),
-                Text(
-                    data['time'],
-                    style: TextStyle(
-                        fontSize: 66.0,
-                        color: Colors.white
-                    )
-                ),
+                Text(data['time'],
+                    style: TextStyle(fontSize: 66.0, color: Colors.white)),
               ],
             ),
           ),

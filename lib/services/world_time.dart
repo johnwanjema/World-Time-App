@@ -23,7 +23,7 @@ class worldTime {
       // create datatime object
       DateTime now = DateTime.parse(datetime);
       now = now.add(Duration(hours: int.parse(offset)));
-      print(now);
+//      print(now);
 
       //set time property
       time = DateFormat.jm().format(now);
