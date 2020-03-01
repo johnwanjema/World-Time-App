@@ -11,7 +11,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     print('data ni hiii  $data');
     data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
-    String bgImage = data['isDay'] ? 'day.jpg' : 'night.jpeg';
+    String bgImage = data['isDay'] ? 'sun-tree.jpg' : 'night.jpeg';
     Color bgColor = data['isDay'] ? Colors.blue : Colors.indigo[700];
     return Scaffold(
       backgroundColor: bgColor,
@@ -44,12 +44,13 @@ class _HomeState extends State<Home> {
                   },
                   icon: Icon(
                     Icons.edit_location,
-                    color: Colors.grey[300],
+                    color: Colors.white,
                   ),
                   label: Text(
                     'Edit Location',
                     style: TextStyle(
-                      color: Colors.black,
+                      fontSize: 20,
+                      color: Colors.white,
                     ),
                   ),
                 ),
