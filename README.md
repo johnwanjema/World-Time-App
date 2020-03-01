@@ -10,6 +10,8 @@ This app helps you now time in diffrent locations
 John wanjema
 ## Images
 
-![alt text](/assests/Screenshot_1583077657.png | width=100)
+![Edit loaction](/assests/Screenshot_1583077657.png )
+![choose location](/assests/Screenshot_1583077700.png )
+![View loaction](/assests/Screenshot_1583077727.png )
 
 
